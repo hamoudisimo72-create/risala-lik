@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>رسالة صغيرة لكِ 🌸</title>
+  <meta name="theme-color" content="#f5d0e6" />
+
+  <!-- خطوط عربية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            body: ['Tajawal', 'sans-serif'],
+            poem: ['Amiri', 'serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html, body { min-height: 100%; }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: linear-gradient(135deg, #fde2ee 0%, #f5d0f0 35%, #d9ccf5 70%, #c7d2fe 100%);
+      background-size: 300% 300%;
+      animation: bgShift 18s ease infinite;
+      color: #4a2c4f;
+      overflow-x: hidden;
+    }
+    @keyframes bgShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Glassmorphism */
+    .glass {
+      background: rgba(255, 255, 255, 0.38);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      box-shadow: 0 10px 40px rgba(170, 100, 180, 0.18);
+      border-radius: 1.75rem;
+    }
+
+    /* ظهور تدريجي */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    /* قلوب عائمة */
+    .floating-heart {
+      position: fixed;
+      bottom: -40px;
+      pointer-events: none;
+      opacity: 0;
+      animation: floatUp linear forwards;
+      z-index: 0;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+      10%  { opacity: .75; }
+      100% { transform: translateY(-110vh) translateX(var(--drift)) rotate(var(--rot)); opacity: 0; }
+    }
+
+    .title-glow { text-shadow: 0 2px 18px rgba(236, 120, 180, 0.45); }
+
+    .btn-yes {
+      background: linear-gradient(135deg, #ec6aa8, #a56cf0);
+      box-shadow: 0 8px 22px rgba(170, 90, 200, 0.4);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .btn-yes:hover  { transform: translateY(-2px) scale(1.03); box-shadow: 0 12px 28px rgba(170, 90, 200, 0.5); }
+    .btn-yes:active { transform: scale(.97); }
+
+    .btn-no {
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1), font-size .3s ease, opacity .3s ease;
+    }
+
+    .pulse-soft { animation: pulseSoft 2.6s ease-in-out infinite; }
+    @keyframes pulseSoft {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.12); }
+    }
+
+    textarea:focus { outline: none; box-shadow: 0 0 0 3px rgba(200, 120, 220, .35); }
+    textarea::placeholder { color: rgba(90, 50, 100, .5); }
+
+    .hidden-step { display: none; }
+  </style>
+</head>
+
+<body class="font-body">
+  <!-- طبقة القلوب -->
+  <div id="hearts" aria-hidden="true"></div>
+
+  <main class="relative z-10 mx-auto flex min-h-screen max-w-xl flex-col items-center gap-8 px-5 py-10">
+
+    <!-- 1) الترحيب -->
+    <section id="welcome" class="reveal mt-6 text-center">
+      <div class="pulse-soft mb-3 text-5xl">🌸</div>
+      <h1 class="title-glow font-poem text-4xl font-bold leading-tight text-fuchsia-900 sm:text-5xl">
+        مرحباً بكِ…
+      </h1>
+      <p class="mt-4 text-lg leading-8 text-purple-900/80">
+        أتمنى أن يكون يومكِ جميلاً كابتسامةٍ هادئة،<br />
+        وأن تمنحيني دقيقتين من وقتكِ لقراءة هذه الكلمات.
+      </p>
+    </section>
+
+    <!-- 2) الرسالة والقصيدة -->
+    <section id="letter" class="reveal glass w-full p-6 sm:p-8">
+      <h2 class="mb-3 text-center font-poem text-2xl font-bold text-fuchsia-800">رسالة صغيرة</h2>
+      <p class="text-[1.05rem] leading-9 text-purple-950/85">
+        أعرف أن الكلام قد يبدو مفاجئاً، لكنني أُفضّل الصدق على الصمت.
+        لفت انتباهي فيكِ هدوؤكِ وأخلاقكِ، وطريقتكِ الراقية في الحضور،
+        فوجدتُ في قلبي إعجاباً واحتراماً أردتُ أن أقوله لكِ بلطف ومن دون أي إحراج.
+        لا أطلب سوى فرصة بسيطة لنتعرّف على بعضنا بأدبٍ وهدوء،
+        وإن لم تكن الفكرة مناسبة، فسأحترم رأيكِ بكل امتنان.
+      </p>
+
+      <div class="my-6 flex items-center justify-center gap-3 text-pink-400">
+        <span class="h-px w-16 bg-pink-300"></span><span>❀</span><span class="h-px w-16 bg-pink-300"></span>
+      </div>
+
+      <div class="text-center font-poem text-xl leading-10 text-purple-900 sm:text-2xl sm:leading-[3rem]">
+        <p>إلى التي مرّت كنسمةٍ على بالي</p>
+        <p>فأضاءت في صمتي الجميلِ خيالي</p>
+        <p class="mt-3">لا أملكُ إلا قلباً صادقاً ومحبّةً</p>
+        <p>ورجاءً صغيراً: أن نمضي بلا استعجالِ</p>
+        <p class="mt-3">إن قلتِ «نعم» فالفرحُ يسكنني</p>
+        <p>وإن قلتِ «لا» فالودُّ باقٍ على حالي 🌷</p>
+      </div>
+    </section>
+
+    <!-- 3) سؤال التعارف -->
+    <section id="ask" class="reveal glass relative w-full p-6 text-center sm:p-8" style="min-height: 15rem;">
+      <h2 class="font-poem text-3xl font-bold text-fuchsia-900">واش تقبلي نتعارفو؟</h2>
+      <p class="mt-2 text-sm text-purple-900/70">جاوبيني بكل راحة، من غير أي ضغط 🤍</p>
+
+      <div id="askButtons" class="relative mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row" style="min-height: 7rem;">
+        <button id="btnYes" type="button"
+          class="btn-yes z-10 rounded-full px-8 py-3.5 text-lg font-bold text-white">
+          نعم، بكل سرور ✨
+        </button>
+
+        <button id="btnNo" type="button"
+          class="btn-no z-0 rounded-full border border-white/70 bg-white/60 px-6 py-3 text-base font-medium text-purple-900 hover:bg-white/80">
+          لا مزال مشي دابا 😅
+        </button>
+      </div>
+
+      <p id="noMessage" class="mt-4 hidden text-sm leading-7 text-purple-900/80"></p>
+    </section>
+
+    <!-- 4) الخطوة الأخيرة: رسالتها + واتساب -->
+    <section id="replyStep" class="hidden-step glass w-full p-6 text-center sm:p-8">
+      <div class="mb-2 text-4xl">💌</div>
+      <h2 class="font-poem text-2xl font-bold text-fuchsia-900">شكراً لكِ من القلب</h2>
+      <p class="mt-2 leading-8 text-purple-900/80">
+        إن أحببتِ، اكتبي لي كلمة أو رسالة صغيرة، وسأنتظرها بكل لطف.
+      </p>
+
+      <textarea id="userMessage" rows="4" maxlength="500"
+        class="mt-5 w-full resize-none rounded-2xl border border-white/70 bg-white/55 p-4 text-right text-purple-950"
+        placeholder="اكتبي رسالتكِ هنا… (اختياري)"></textarea>
+
+      <button id="btnWhatsapp" type="button"
+        class="btn-yes mt-5 w-full rounded-full px-6 py-4 text-lg font-bold text-white">
+        إرسال الرد عبر الواتساب 💬
+      </button>
+
+      <p class="mt-3 text-xs text-purple-900/60">سيفتح الواتساب برسالة جاهزة، يمكنكِ تعديلها قبل الإرسال.</p>
+    </section>
+
+    <footer class="mt-auto pb-4 text-center text-xs text-purple-900/50">
+      صُنعت بكل لطف 🌷
+    </footer>
+  </main>
+
+  <script>
+    /* ============ الإعدادات (غيّر ما تريد هنا) ============ */
+    const WHATSAPP_NUMBER = "212776799312"; // رقمك مع رمز الدولة بدون + أو مسافات
+    const MAX_DODGES = 6;                   // عدد مرات هروب الزر قبل أن يستسلم بلطف
+
+    /* ============ ظهور الأقسام تدريجياً ============ */
+    const revealEls = document.querySelectorAll('.reveal');
+    revealEls.forEach((el, i) => setTimeout(() => el.classList.add('show'), 250 + i * 450));
+
+    /* ============ قلوب عائمة ============ */
+    const heartsLayer = document.getElementById('hearts');
+    const symbols = ['💗', '🌸', '🤍', '✨', '💜', '🌷'];
+    function spawnHeart() {
+      const h = document.createElement('span');
+      h.className = 'floating-heart';
+      h.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      const size = 14 + Math.random() * 18;
+      const dur = 9 + Math.random() * 8;
+      h.style.left = Math.random() * 100 + 'vw';
+      h.style.fontSize = size + 'px';
+      h.style.animationDuration = dur + 's';
+      h.style.setProperty('--drift', (Math.random() * 120 - 60) + 'px');
+      h.style.setProperty('--rot', (Math.random() * 60 - 30) + 'deg');
+      heartsLayer.appendChild(h);
+      setTimeout(() => h.remove(), dur * 1000);
+    }
+    setInterval(spawnHeart, 900);
+    for (let i = 0; i < 5; i++) setTimeout(spawnHeart, i * 300);
+
+    /* ============ زر "لا" المرح ============ */
+    const btnNo = document.getElementById('btnNo');
+    const btnYes = document.getElementById('btnYes');
+    const noMessage = document.getElementById('noMessage');
+    const funnyTexts = [
+      "حتى هاد الزر خجول 🙈",
+      "واو، سريع هاد الزر! 😄",
+      "ماشي هاكا… عاودي حاولي 😅",
+      "يمكن تعطيني فرصة صغيرة؟ 🥺",
+      "الزر تعب، والقلب كيتمنى 'نعم' 💗",
+      "طيب، بلا ضغط… خذي وقتك 🌷",
+    ];
+    let dodges = 0;
+    let yesScale = 1;
+
+    function dodge() {
+      if (dodges >= MAX_DODGES) return false;
+      dodges++;
+      const maxX = Math.min(110, window.innerWidth / 2 - 90);
+      const x = (Math.random() * 2 - 1) * maxX;
+      const y = (Math.random() * 2 - 1) * 55;
+      btnNo.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random() * 14 - 7}deg)`;
+
+      noMessage.textContent = funnyTexts[Math.min(dodges - 1, funnyTexts.length - 1)];
+      noMessage.classList.remove('hidden');
+
+      // زر "نعم" يكبر قليلاً بلطف
+      yesScale = Math.min(1.25, yesScale + 0.04);
+      btnYes.style.transform = `scale(${yesScale})`;
+      return true;
+    }
+
+    ['mouseenter', 'touchstart'].forEach(evt =>
+      btnNo.addEventListener(evt, (e) => {
+        if (dodges < MAX_DODGES) {
+          if (e.type === 'touchstart') e.preventDefault();
+          dodge();
+        }
+      }, { passive: false })
+    );
+
+    btnNo.addEventListener('click', () => {
+      if (dodge()) return;
+      // بعد الاستسلام: رد محترم وهادئ
+      btnNo.textContent = "مزال مشي دابا 🌿";
+      btnNo.style.transform = 'none';
+      noMessage.innerHTML = "ما كاين حتى مشكل، كنحترم قرارك وكنشكرك على وقتك 🤍<br />إلا بدلتي رأيك، الزر اللي فوق كيتسناك ✨";
+      noMessage.classList.remove('hidden');
+    });
+
+    /* ============ زر "نعم" ============ */
+    const askSection = document.getElementById('ask');
+    const replyStep = document.getElementById('replyStep');
+
+    btnYes.addEventListener('click', () => {
+      burstHearts();
+      askSection.style.transition = 'opacity .6s ease, transform .6s ease';
+      askSection.style.opacity = '0';
+      askSection.style.transform = 'scale(.96)';
+      setTimeout(() => {
+        askSection.style.display = 'none';
+        replyStep.classList.remove('hidden-step');
+        replyStep.classList.add('reveal');
+        requestAnimationFrame(() => replyStep.classList.add('show'));
+        replyStep.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 600);
+    });
+
+    function burstHearts() {
+      for (let i = 0; i < 24; i++) setTimeout(spawnHeart, i * 50);
+    }
+
+    /* ============ إرسال عبر الواتساب ============ */
+    document.getElementById('btnWhatsapp').addEventListener('click', () => {
+      const userText = document.getElementById('userMessage').value.trim();
+      let message = "السلام عليكم 🌸\nشفت الصفحة اللي صيفطتي، وجوابي هو: نعم، بكل سرور ✨";
+      if (userText) message += "\n\nوهادي رسالتي ليك:\n" + userText;
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>
